@@ -1,288 +1,480 @@
-<!DOCTYPE html>
-
-<html class="dark" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Zelve | Cognitive Systems</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "primary-fixed-dim": "#12d7ef",
-                      "surface-container-lowest": "#000000",
-                      "on-tertiary-fixed": "#001835",
-                      "secondary-dim": "#b884ff",
-                      "on-secondary-container": "#dfc6ff",
-                      "on-tertiary": "#002a55",
-                      "inverse-on-surface": "#555557",
-                      "error-dim": "#d7383b",
-                      "on-secondary": "#2f0060",
-                      "inverse-primary": "#006976",
-                      "surface-container-highest": "#242629",
-                      "primary-dim": "#12d7ef",
-                      "tertiary-dim": "#5c9ffc",
-                      "on-primary-fixed": "#003a42",
-                      "on-surface-variant": "#ababad",
-                      "on-tertiary-container": "#001d3f",
-                      "surface-dim": "#0d0e10",
-                      "inverse-surface": "#fbf9fb",
-                      "surface-container-low": "#121316",
-                      "secondary-fixed": "#e0c7ff",
-                      "background": "#0d0e10",
-                      "tertiary-fixed-dim": "#64a4ff",
-                      "secondary-fixed-dim": "#d6b6ff",
-                      "error-container": "#9f0519",
-                      "surface-bright": "#2b2c2f",
-                      "surface-container-high": "#1e2022",
-                      "on-secondary-fixed-variant": "#6732aa",
-                      "error": "#ff716c",
-                      "tertiary-container": "#599cf9",
-                      "tertiary-fixed": "#80b2ff",
-                      "on-primary": "#00515b",
-                      "on-secondary-fixed": "#49068c",
-                      "on-primary-container": "#004750",
-                      "surface-container": "#181a1c",
-                      "outline-variant": "#47484a",
-                      "primary-container": "#1cdaf2",
-                      "on-error": "#490006",
-                      "tertiary": "#70aaff",
-                      "on-surface": "#fdfbfe",
-                      "secondary-container": "#5d26a0",
-                      "primary": "#48e7ff",
-                      "on-tertiary-fixed-variant": "#003971",
-                      "secondary": "#b884ff",
-                      "surface": "#0d0e10",
-                      "primary-fixed": "#37e5fe",
-                      "on-primary-fixed-variant": "#005964",
-                      "surface-variant": "#242629",
-                      "outline": "#757578",
-                      "on-error-container": "#ffa8a3",
-                      "on-background": "#fdfbfe",
-                      "surface-tint": "#48e7ff"
-              },
-              "borderRadius": {
-                      "DEFAULT": "1rem",
-                      "lg": "2rem",
-                      "xl": "3rem",
-                      "full": "9999px"
-              },
-              "fontFamily": {
-                      "headline": ["Space Grotesk"],
-                      "body": ["Manrope"],
-                      "label": ["Manrope"]
-              }
-            },
-          },
-        }
-    </script>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zelve — Consultoria em Transformação Digital</title>
+<meta name="description" content="A Zelve projeta e implementa automação de processos, integração de sistemas e estratégia digital para empresas de médio e grande porte.">
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .ghost-border {
-            outline: 1px solid rgba(72, 231, 255, 0.15);
-        }
-        .core-glow-bg {
-            background: linear-gradient(135deg, #48e7ff 0%, #b884ff 100%);
-        }
-        .neural-grid {
-            background-image: radial-gradient(rgba(72, 231, 255, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-        .glow-cyan {
-            box-shadow: 0 0 25px rgba(72, 231, 255, 0.2);
-        }
-        .glow-text-cyan {
-            text-shadow: 0 0 10px rgba(72, 231, 255, 0.5);
-        }
-    
-        @keyframes pulse-breathing {
-            0%, 100% { 
-                transform: scale(1); 
-                opacity: 0.9; 
-            }
-            50% { 
-                transform: scale(1.05); 
-                opacity: 1; 
-            }
-        }
-        .animate-pulse-breathing {
-            animation: pulse-breathing 8s ease-in-out infinite;
-            transform-origin: center;
-            will-change: transform, opacity;
-        }
-        @keyframes levitate-glow {
-            0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 8px rgba(72, 231, 255, 0.15)); }
-            50% { transform: translateY(-5px); filter: drop-shadow(0 0 15px rgba(72, 231, 255, 0.3)); }
-        }
-        .animate-levitate-glow {
-            animation: levitate-glow 12s ease-in-out infinite;
-        }
-    </style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --paper: #F5F4F1;
+    --paper-support: #EFEDE8;
+    --white: #FFFFFF;
+    --ink: #0B0B0C;
+    --ink-soft: #16171A;
+    --amber: #B57A20;
+    --amber-light: #F0E3CC;
+    --line: #DCDAD5;
+    --text-secondary: #6B6E73;
+    --on-ink: #C9CACC;
+    --on-ink-label: #8E9195;
+    --on-ink-line: #3A3B3E;
+    --font-body: 'Manrope', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --max: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { background: var(--paper); }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding-inline: 24px;
+  }
+
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .label.on-ink { color: var(--amber); }
+  .label.neutral { color: var(--text-secondary); }
+
+  .wrap {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-block: 0;
+  }
+
+  /* ---------- Mark ---------- */
+  .mark {
+    --side: 28px;
+    width: var(--side);
+    height: var(--side);
+    flex: none;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mark::before {
+    content: "";
+    width: 62%;
+    height: 62%;
+    background: var(--paper);
+    clip-path: polygon(0% 0%,100% 0%,100% 17%,31% 83%,100% 83%,100% 100%,0% 100%,0% 83%,69% 17%,0% 17%);
+  }
+  .mark.on-ink { background: var(--paper); }
+  .mark.on-ink::before { background: var(--ink); }
+
+  .signature {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0.24em;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(245, 244, 241, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 20px;
+    gap: 24px;
+  }
+  nav { display: flex; align-items: center; gap: 36px; }
+  nav a {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  nav a:hover { color: var(--amber); }
+  .nav-links { display: flex; gap: 36px; }
+  .btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 12px 22px;
+    display: inline-block;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.solid:hover { background: var(--ink-soft); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: 96px 72px;
+  }
+  .hero .label { margin-bottom: 28px; display: block; }
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 58px);
+    max-width: 15ch;
+    line-height: 1.12;
+  }
+  .hero .sub {
+    margin-top: 28px;
+    max-width: 58ch;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .hero .actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .capabilities {
+    margin-top: 72px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+  }
+  .capabilities span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding-block: 88px; }
+  .section-head { max-width: 68ch; margin-bottom: 56px; }
+  .section-head .label { margin-bottom: 18px; display: block; }
+  .section-head h2 { font-size: clamp(26px, 3.4vw, 38px); }
+  .section-head .sub { margin-top: 18px; color: var(--text-secondary); font-size: 17px; max-width: 60ch; }
+
+  /* ---------- Serviços ---------- */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .card {
+    background: var(--white);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card .glyph {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--ink);
+  }
+  .card .glyph.square-full { background: var(--ink); border: none; }
+  .card .glyph.diamond { transform: rotate(45deg); width: 28px; height: 28px; margin: 6px; }
+  .card .glyph.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    border: none;
+    width: 40px;
+    height: 40px;
+  }
+  .card .glyph.grid2 div { background: var(--ink); }
+  .card h3 { font-size: 20px; }
+  .card p { color: var(--text-secondary); font-size: 15.5px; }
+
+  /* ---------- Processo ---------- */
+  .process-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .process-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    padding-block: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .process-item:last-child { border-bottom: 1px solid var(--line); }
+  .process-item .num {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    padding-top: 4px;
+  }
+  .process-item h3 { font-size: 20px; margin-bottom: 10px; }
+  .process-item p { color: var(--text-secondary); font-size: 16px; max-width: 62ch; }
+
+  /* ---------- Sobre (dark) ---------- */
+  .sobre {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+  .sobre .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .sobre .label { color: var(--amber); }
+  .sobre h2 { color: var(--paper); font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 24px; }
+  .sobre p { color: var(--on-ink); font-size: 16.5px; }
+  .sobre .fact-list { display: flex; flex-direction: column; gap: 24px; }
+  .fact {
+    border-top: 1px solid var(--on-ink-line);
+    padding-top: 16px;
+  }
+  .fact .label { color: var(--on-ink-label); margin-bottom: 8px; display: block; }
+  .fact strong { font-size: 17px; font-weight: 500; color: var(--paper); }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    text-align: left;
+  }
+  .cta-inner {
+    border: 1px solid var(--ink);
+    padding: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0;
+    width: 120px;
+    height: 6px;
+    background: var(--amber);
+  }
+  .cta-inner::after {
+    content: "";
+    position: absolute;
+    left: 120px; top: 0;
+    right: 0;
+    height: 6px;
+    background: var(--on-ink-line);
+    opacity: 0.15;
+  }
+  .cta h2 { font-size: clamp(24px, 3vw, 32px); max-width: 26ch; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-block: 48px;
+    margin-top: 40px;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  footer .meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+
+  @media (max-width: 880px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .sobre .wrap { grid-template-columns: 1fr; }
+    .process-item { grid-template-columns: 56px 1fr; }
+    .cta-inner { padding: 40px 28px; }
+    .nav-links { display: none; }
+    footer .wrap { flex-direction: column; align-items: flex-start; }
+    footer .meta { text-align: left; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary/30">
-<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl border-b border-cyan-500/15 shadow-[0_0_40px_rgba(72,231,255,0.05)]">
-<div class="flex justify-between items-center px-8 py-3 max-w-screen-2xl mx-auto">
-<div class="text-2xl font-bold tracking-tighter text-cyan-400 font-headline">
-<img alt="Zelve Technologies Logo" class="h-16 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ujtFjSJEBAtOQimf0BonMvFKGJ-5_CLGNO1gkx6mCktLHk6bq9R022GkhmCIKH-86_YGPOLpGzfryWZJ-KexVxeESiwhMW9Lty6nMEIOzrbipuodZFy-xkV5goObTQSufWuOkLJKTk284RirzD524J82gYSecJXPT1azAtGnABexFKFlivRxWOynMtUIXxNY82CXAeS1MijjD3_HaKQwjDC3vxn_Z-87Otdy6ANEP2eSlLazjtR_FKb3NE9BQ0Wl0LkK7J-i4pOWGo"/>
-</div>
-<div class="hidden md:flex items-center gap-10">
-<a class="font-headline tracking-tight text-xs uppercase transition-colors duration-300 hover:text-cyan-300 text-white" href="#">Inteligência Autônoma</a>
-<a class="font-headline tracking-tight text-xs uppercase transition-colors duration-300 hover:text-cyan-300 text-white" href="#">Tecnologia</a>
-<a class="font-headline tracking-tight text-xs uppercase transition-colors duration-300 hover:text-cyan-300 text-white" href="#">Core</a>
-</div>
-<button class="bg-primary text-on-primary-fixed rounded-full font-headline text-xs font-bold tracking-tight scale-95 transition-transform active:scale-90 hover:shadow-[0_0_20px_rgba(72,231,255,0.4)] px-6 py-3">Escalar Operação Autônoma</button>
-</div>
-</nav>
-<main class="relative overflow-hidden">
-<section class="relative min-h-[70vh] flex flex-col justify-center px-8 pt-20 pb-12 neural-grid">
-<div class="max-w-screen-xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-<div class="lg:col-span-7">
-<div class="mb-6">
-<span class="inline-block py-1 px-4 rounded-full ghost-border bg-surface-container-low text-primary font-headline tracking-widest uppercase mt-[30px] text-[12px]">
-                            Conversão Comercial Full-Time
-                        </span>
-</div>
-<h1 class="text-5xl md:text-6xl lg:text-7xl font-headline font-bold text-on-surface leading-[0.95] tracking-tighter mb-6">
-                        Sua operação comercial sem as <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">limitações humanas</span>
-</h1>
-<p class="text-lg md:text-xl text-on-surface max-w-xl leading-relaxed mb-8 border-l-2 border-primary pl-6 glow-text-cyan">Enquanto equipes tradicionais geram custos variáveis e gargalos operacionais, a Zelve entrega uma força de vendas constante, escalável e baseada em processamento neural de linguagem.</p>
-<div class="flex flex-wrap gap-4">
-<button class="core-glow-bg text-on-primary-fixed rounded-full font-headline font-bold tracking-tight hover:scale-105 transition-transform px-8 py-4 text-lg">Escalar Operação Autônoma</button>
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-<img alt="Zelve Neural Brain visualization" class="relative z-10 w-full max-w-md mx-auto animate-pulse-breathing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB4DDvb8Ip9w5Eq1CaajgPlAajQMWZs40LEfjynVRBVBDajQBPByLDGcN8BtnipbZ6CBEf-v2uItldv4K8O3CBdnf5T_K1Vt55yHBbKpWUelEKTs57f-i-0WamcRfcsxTqgbSOAEiX7qvKp0VIj_fX3NaskgMHnwGa_61UtFUfIwIM4qpuohedcWar9RZ9JUI9bZET9uW4Jax4F236rK8Sy1Nlg2bUrGEBRLs0NvI_xI4uK0nDi6NQi3VlPPAoOL6r_EK3J_cxxOmA"/>
-</div>
-</div>
-</section>
-<section class="py-16 px-8 bg-surface-container-low relative">
-<div class="max-w-screen-xl mx-auto">
-<div class="mb-12 text-center">
-<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-3">Inteligência Autônoma</h2>
-<p class="text-on-surface-variant uppercase tracking-widest font-label text-xs">A evolução irreversível da lógica operacional</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 rounded-xl overflow-hidden shadow-2xl">
-<div class="p-10 bg-neutral-900 flex flex-col justify-between border-r border-white/5 relative">
-<div>
-<div class="flex items-center gap-3 mb-8">
-<span class="material-symbols-outlined text-amber-500/90 text-3xl">biotech</span>
-<h3 class="text-2xl font-headline font-bold uppercase tracking-tighter text-neutral-200">Atendimento Humano</h3>
-</div>
-<ul class="space-y-6">
-<li class="flex gap-4 text-neutral-300 group">
-<span class="material-symbols-outlined text-amber-600/80 shrink-0 mt-1 text-2xl">payments</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-amber-500/70 mb-1">Custos Elevados</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Salários, encargos sociais e impostos sobre a folha.</span>
-</div>
-</li>
-<li class="flex gap-4 text-neutral-300 group">
-<span class="material-symbols-outlined text-amber-600/80 shrink-0 mt-1 text-2xl">event_busy</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-amber-500/70 mb-1">Instabilidade</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Interrupções por atestados médicos e licenças.</span>
-</div>
-</li>
-<li class="flex gap-4 text-neutral-300 group">
-<span class="material-symbols-outlined text-amber-600/80 shrink-0 mt-1 text-2xl">timer_off</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-amber-500/70 mb-1">Indisponibilidade</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Pausas para almoço, férias e horários restritos.</span>
-</div>
-</li>
-<li class="flex gap-4 text-neutral-300 group">
-<span class="material-symbols-outlined text-amber-600/80 shrink-0 mt-1 text-2xl">block</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-amber-500/70 mb-1">Gargalo de Escala</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Capacidade limitada a apenas um atendimento por vez.</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="p-10 bg-neutral-950 relative overflow-hidden glow-cyan">
-<div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent opacity-40"></div>
-<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
-<div class="relative z-10 flex flex-col justify-between h-full">
-<div>
-<div class="flex items-center gap-3 mb-8">
-<span class="material-symbols-outlined text-primary text-4xl glow-text-cyan" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
-<h3 class="text-2xl font-headline font-bold uppercase tracking-tight text-white glow-text-cyan">Zelve Neural Core</h3>
-</div>
-<ul class="space-y-6">
-<li class="flex gap-4 text-on-surface">
-<span class="material-symbols-outlined text-primary shrink-0 mt-1 text-2xl">savings</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-primary mb-1 font-bold">Custo Otimizado</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Investimento fixo e previsível, sem passivos trabalhistas.</span>
-</div>
-</li>
-<li class="flex gap-4 text-on-surface">
-<span class="material-symbols-outlined text-primary shrink-0 mt-1 text-2xl">sync_saved_locally</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-primary mb-1 font-bold">100% Uptime</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Operação ininterrupta, 24 horas por dia, 365 dias por ano.</span>
-</div>
-</li>
-<li class="flex gap-4 text-on-surface">
-<span class="material-symbols-outlined text-primary shrink-0 mt-1 text-2xl">psychology</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-primary mb-1 font-bold">Linguagem Neural</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Comunicação fluida que elimina falhas de interpretação.</span>
-</div>
-</li>
-<li class="flex gap-4 text-on-surface">
-<span class="material-symbols-outlined text-primary shrink-0 mt-1 text-2xl">speed</span>
-<div class="flex flex-col">
-<span class="font-label text-xs uppercase tracking-widest text-primary mb-1 font-bold">Escala Infinita</span>
-<span class="text-neutral-200 font-body text-sm leading-snug">Gerenciamento de milhares de negociações simultâneas.</span>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 px-8">
-<div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div class="order-2 lg:order-1">
-<div class="relative aspect-video rounded-lg overflow-hidden ghost-border bg-surface-container-high group">
-<img alt="Zelve Cognitive Core architecture" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 animate-levitate-glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOZUHC_dUcIai4URupr_4AhztpMgT0wzDtjDOMnjUxI-nqtfQy2NTpQgjIuptCoEUsmifjbhMV-yVd-YYc4sZTU9q9lw4x9Z1mw6ZAFvIRc8kByx_ltDRAHFUus3tlUyR1Hc_2VjZ8wXtoRarKmOuAkDDaD3LLDrYvrggqVEuhJnGYU2mGju-X7FYK8E-2Ophtj2Z5pDp48VOboyeDXxd0R-WwU5iOG2QLJfyYSkgVUAIQHrVf_vhX3SOJuPbaH0Tj9-0yDLiWdDvN"/>
-</div>
-</div>
-<div class="order-1 lg:order-2">
-<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-6">O fim do erro operacional.</h2>
-<div class="space-y-4 text-on-surface-variant leading-relaxed text-base"><p>Nossa IA Conversacional utiliza modelos de linguagem neural para garantir que cada interação seja precisa, persuasiva e técnica.</p><p>Diferente de funcionários que sofrem com fadiga ou falta de treinamento, a Zelve evolui a cada diálogo.</p></div>
-</div>
-</div>
-</section>
-<section class="py-20 px-8 relative">
-<div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent"></div>
-</section>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="signature" style="text-decoration:none;">
+      <span class="mark"></span>ELVE
+    </a>
+    <nav>
+      <div class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#processo">Como trabalhamos</a>
+        <a href="#sobre">Sobre</a>
+      </div>
+      <a href="#contato" class="btn solid">Agendar conversa</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="label">Consultoria em transformação digital</span>
+      <h1>Processos automatizados sustentam operações que não podem parar.</h1>
+      <p class="sub">A Zelve projeta e implementa automação de processos, integração de sistemas e estratégia digital para empresas de médio e grande porte — unindo inteligência artificial, machine learning e gestão clássica em um único trabalho de consultoria.</p>
+      <div class="actions">
+        <a href="#contato" class="btn solid">Agendar conversa</a>
+        <a href="#processo" class="btn">Como trabalhamos</a>
+      </div>
+      <div class="capabilities">
+        <span>Reconciliação financeira</span>
+        <span>Integração de sistemas</span>
+        <span>Gestão de franquias e rebate</span>
+        <span>Atendimento e vendas</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label neutral">Serviços</span>
+        <h2>Três frentes de trabalho, um único objetivo: reduzir o custo da operação.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="glyph square-full"></div>
+          <h3>Automação de processos</h3>
+          <p>Mapeamento e automação de rotinas operacionais e financeiras — reconciliação, conciliação de dados e fluxos de aprovação — para reduzir retrabalho manual e erro operacional.</p>
+        </div>
+        <div class="card">
+          <div class="glyph grid2"><div></div><div></div><div></div><div></div></div>
+          <h3>Integração de sistemas</h3>
+          <p>Conexão entre ERPs, planilhas, APIs e canais de atendimento, para que a informação circule entre áreas sem reentrada manual de dados.</p>
+        </div>
+        <div class="card">
+          <div class="glyph diamond"></div>
+          <h3>Estratégia digital</h3>
+          <p>Diagnóstico e roteiro de adoção de IA e automação, priorizando os pontos de maior custo operacional antes da escolha da tecnologia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label neutral">Como trabalhamos</span>
+        <h2>Um processo de quatro etapas, do diagnóstico à operação em produção.</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="num">01</span>
+          <div>
+            <h3>Diagnóstico</h3>
+            <p>Levantamento dos processos atuais, dos sistemas envolvidos e do custo operacional de cada etapa, junto às áreas que executam o processo hoje.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="num">02</span>
+          <div>
+            <h3>Arquitetura</h3>
+            <p>Definição da automação ou integração necessária, priorizando o que gera retorno mais rápido sobre o esforço de implementação.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="num">03</span>
+          <div>
+            <h3>Implementação</h3>
+            <p>Desenvolvimento e implantação da solução, com testes conduzidos junto às pessoas que operam o processo no dia a dia.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="num">04</span>
+          <div>
+            <h3>Evolução contínua</h3>
+            <p>Acompanhamento pós-entrega e ajustes conforme o processo muda, a operação cresce ou novos sistemas entram em uso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre">
+    <div class="wrap">
+      <div>
+        <span class="label">Sobre a Zelve</span>
+        <h2>Uma consultoria boutique, formada por quem já automatizou a própria operação.</h2>
+        <p>A Zelve nasceu da experiência prática de automatizar rotinas financeiras e administrativas em empresas reais — antes de virar consultoria. Sediada em Florianópolis, SC, a empresa é formada por três sócios com histórico em dados, engenharia de software e gestão, e atende empresas de médio e grande porte que buscam reduzir custo operacional por meio de automação e integração de sistemas.</p>
+      </div>
+      <div class="fact-list">
+        <div class="fact">
+          <span class="label">Sede</span>
+          <strong>Florianópolis, SC</strong>
+        </div>
+        <div class="fact">
+          <span class="label">Fundação</span>
+          <strong>2026</strong>
+        </div>
+        <div class="fact">
+          <span class="label">Composição societária</span>
+          <strong>3 sócios — Gunther, Paulo Lentz e Thiago Meller</strong>
+        </div>
+        <div class="fact">
+          <span class="label">Público-alvo</span>
+          <strong>Empresas de médio e grande porte, B2B</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contato">
+    <div class="wrap">
+      <div class="cta-inner">
+        <h2>Uma conversa de 30 minutos identifica onde a automação reduz custo primeiro.</h2>
+        <a href="mailto:contato@zelve.com.br" class="btn solid">Falar com a Zelve</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="bg-neutral-950 w-full py-10 px-8 border-t border-neutral-900">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
-<div class="flex items-center gap-8">
-<span class="text-primary font-headline font-bold tracking-tighter text-xl">
-<img alt="Zelve Technologies Logo" class="h-14 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ujtFjSJEBAtOQimf0BonMvFKGJ-5_CLGNO1gkx6mCktLHk6bq9R022GkhmCIKH-86_YGPOLpGzfryWZJ-KexVxeESiwhMW9Lty6nMEIOzrbipuodZFy-xkV5goObTQSufWuOkLJKTk284RirzD524J82gYSecJXPT1azAtGnABexFKFlivRxWOynMtUIXxNY82CXAeS1MijjD3_HaKQwjDC3vxn_Z-87Otdy6ANEP2eSlLazjtR_FKb3NE9BQ0Wl0LkK7J-i4pOWGo"/>
-</span>
-<span class="font-manrope text-[10px] tracking-widest uppercase text-neutral-300">© 2026 Zelve Technologies. Liderando a Autonomia Comercial com Inteligência Neural.</span>
-</div>
-<div class="flex items-center">
-<span class="inline-block py-0.5 px-3 rounded-full ghost-border bg-black text-[9px] tracking-[0.15em] text-primary/80 font-headline uppercase font-bold">
-                    Conversão Comercial Full-Time
-                </span>
-</div>
-</div>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="signature" style="text-decoration:none; font-size:18px;">
+      <span class="mark" style="--side:22px;"></span>ELVE
+    </a>
+    <div class="meta">
+      © 2026 ZELVE TECHNOLOGIES · FLORIANÓPOLIS, SC<br>
+      CONTATO@ZELVE.COM.BR
+    </div>
+  </div>
 </footer>
-</body></html>
+
+</body>
+</html>
